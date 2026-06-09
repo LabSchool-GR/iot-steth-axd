@@ -178,7 +178,7 @@ body {
     pointer-events: auto;
 }
 
-.material-symbols-outlined.tv-icon {
+.tv-icon {
     display: inline-flex;
     width: 58px;
     height: 58px;
@@ -189,17 +189,22 @@ body {
     border-radius: 999px;
     background: rgba(8, 125, 146, 0.08);
     color: var(--accent-strong);
-    font-family: "Material Symbols Outlined";
-    font-size: 36px;
-    font-weight: 500;
-    font-style: normal;
     line-height: 1;
-    direction: ltr;
-    text-transform: none;
-    white-space: nowrap;
-    -webkit-font-feature-settings: "liga";
-    -webkit-font-smoothing: antialiased;
-    font-feature-settings: "liga";
+}
+
+.tv-icon svg {
+    width: 36px;
+    height: 36px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.9;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.tv-icon circle {
+    fill: currentColor;
+    stroke: none;
 }
 
 .tv-card h1,
@@ -367,10 +372,14 @@ body {
         font-size: 25px;
     }
 
-    .material-symbols-outlined.tv-icon {
+    .tv-icon {
         width: 64px;
         height: 64px;
-        font-size: 40px;
+    }
+
+    .tv-icon svg {
+        width: 40px;
+        height: 40px;
     }
 
     .tv-identity-logo {

@@ -27,17 +27,17 @@ require __DIR__ . '/index.php';
 ob_end_clean();
 
 /*
- * TV mode uses a Google-hosted icon font, so its CSP is slightly wider than
- * the main dashboard. Other sources remain self-hosted.
+ * TV mode uses only self-hosted scripts, styles, media, images and inline SVG
+ * markup. This keeps it suitable for local/offline display after deployment.
  */
 header(
     'Content-Security-Policy: '
     . "default-src 'self'; "
     . "script-src 'self'; "
-    . "style-src 'self' https://fonts.googleapis.com; "
+    . "style-src 'self'; "
     . "img-src 'self' data:; "
     . "media-src 'self'; "
-    . "font-src 'self' https://fonts.gstatic.com; "
+    . "font-src 'self'; "
     . "connect-src 'self'; "
     . "object-src 'none'; "
     . "base-uri 'self'; "
@@ -70,18 +70,20 @@ $tvPageTitle = $t['tv_page_title'] ?? $t['page_title'];
 $tvIntroText = $t['tv_intro_text'] ?? $t['subtitle'];
 
 /*
- * Icons are decorative and help viewers identify each metric quickly from a
- * distance. The text labels remain the accessible source of meaning.
+ * Icons are decorative inline SVGs. Keeping them in the page avoids external
+ * icon fonts or CDNs, which is important for offline/local TV deployments.
  */
 $tvIconByKey = [
-    'temperature' => 'thermostat',
-    'humidity' => 'humidity_percentage',
-    'pressure' => 'compress',
-    'carbonMonoxide' => 'air',
-    'carbonDioxide' => 'co2',
-    'PMS7003_MP_2_5' => 'blur_on',
-    'PMS7003_MP_10' => 'grain',
+    'temperature' => '<svg viewBox="0 0 24 24" focusable="false"><path d="M14 14.8V5a2 2 0 0 0-4 0v9.8a4 4 0 1 0 4 0Z"/><path d="M12 7v8"/><path d="M10 19h4"/></svg>',
+    'humidity' => '<svg viewBox="0 0 24 24" focusable="false"><path d="M12 3s6 6.4 6 11a6 6 0 0 1-12 0c0-4.6 6-11 6-11Z"/><path d="M9.4 14.5c.4 1.5 1.5 2.4 3 2.4"/></svg>',
+    'pressure' => '<svg viewBox="0 0 24 24" focusable="false"><path d="M4 14a8 8 0 0 1 16 0"/><path d="M7 14h2"/><path d="M15 14h2"/><path d="M12 14l4-4"/><circle cx="12" cy="14" r="1.5"/></svg>',
+    'carbonMonoxide' => '<svg viewBox="0 0 24 24" focusable="false"><path d="M4 9h9a3 3 0 1 0-3-3"/><path d="M4 14h13a3 3 0 1 1-3 3"/><path d="M4 19h6"/></svg>',
+    'carbonDioxide' => '<svg viewBox="0 0 24 24" focusable="false"><path d="M7.5 16.5a4.5 4.5 0 1 1 0-9"/><path d="M14 16.5a4.5 4.5 0 1 0 0-9h-2v9h2Z"/><path d="M17 18h4"/><path d="M21 18c0-1.5-1-2.1-2-2.1s-2 .6-2 2.1"/></svg>',
+    'PMS7003_MP_2_5' => '<svg viewBox="0 0 24 24" focusable="false"><circle cx="7" cy="8" r="2"/><circle cx="14" cy="7" r="1.5"/><circle cx="17" cy="13" r="2"/><circle cx="8.5" cy="16" r="1.5"/><circle cx="12" cy="12" r="1.1"/></svg>',
+    'PMS7003_MP_10' => '<svg viewBox="0 0 24 24" focusable="false"><circle cx="7" cy="8" r="2.6"/><circle cx="15.5" cy="8.5" r="2"/><circle cx="16" cy="16" r="2.8"/><circle cx="8" cy="16" r="1.9"/></svg>',
 ];
+
+$tvFallbackIcon = '<svg viewBox="0 0 24 24" focusable="false"><path d="M4 18h16"/><path d="M6 15l4-4 3 3 5-7"/><path d="M18 7h-4"/></svg>';
 ?>
 <!doctype html>
 <html lang="<?= htmlspecialchars($lang, ENT_QUOTES, 'UTF-8') ?>">
@@ -90,9 +92,6 @@ $tvIconByKey = [
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><?= htmlspecialchars($tvPageTitle, ENT_QUOTES, 'UTF-8') ?></title>
     <meta name="description" content="<?= htmlspecialchars($tvIntroText, ENT_QUOTES, 'UTF-8') ?>">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,500,0,0&display=swap" rel="stylesheet">
     <link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=<?= htmlspecialchars($tvAssetVersion, ENT_QUOTES, 'UTF-8') ?>">
     <link rel="stylesheet" href="assets/tv.css?v=<?= htmlspecialchars($tvAssetVersion, ENT_QUOTES, 'UTF-8') ?>">
 </head>
@@ -134,8 +133,8 @@ $tvIconByKey = [
     <section class="tv-slides" aria-label="<?= htmlspecialchars($tvPageTitle, ENT_QUOTES, 'UTF-8') ?>">
         <?php foreach ($measurementCards as $index => $card): ?>
             <article class="tv-card<?= $index === 0 ? ' active' : '' ?>" data-tv-slide data-measurement-key="<?= htmlspecialchars($card['key'], ENT_QUOTES, 'UTF-8') ?>">
-                <span class="material-symbols-outlined tv-icon" aria-hidden="true">
-                    <?= htmlspecialchars($tvIconByKey[$card['key']] ?? 'monitoring', ENT_QUOTES, 'UTF-8') ?>
+                <span class="tv-icon" aria-hidden="true">
+                    <?= $tvIconByKey[$card['key']] ?? $tvFallbackIcon ?>
                 </span>
                 <h2 data-field="label"><?= htmlspecialchars($card['label'], ENT_QUOTES, 'UTF-8') ?></h2>
                 <div class="<?= htmlspecialchars('tv-value ' . telemetryValueClass($data, $card['key']), ENT_QUOTES, 'UTF-8') ?>" data-field="value" aria-live="polite">

@@ -16,6 +16,11 @@ Club of Thrace Environmental Station through a web display and TV/kiosk presenta
 - Technology Club of Thrace Environmental Station
 - https://steth.gr/env
 
+## Interface Assets
+
+The measurement icons used in TV Mode are local inline SVG interface elements.
+They do not require an external icon font, CDN or third-party runtime request.
+
 ## Attribution Requirement
 
 Any public display, deployment, fork or derivative that presents measurements from the station must
