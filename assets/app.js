@@ -80,7 +80,7 @@
 
         if (value) {
             value.className = card.value_class;
-            value.innerHTML = `${card.value_html}<span class="unit">${card.unit_html}</span>`;
+            value.innerHTML = `${card.value_html} <span class="unit">${card.unit_html}</span>`;
         }
 
         if (description) {

@@ -236,6 +236,7 @@
         }
 
         .unit {
+            margin-left: 6px;
             color: var(--accent-strong);
             font-size: 13px;
             font-weight: 700;
