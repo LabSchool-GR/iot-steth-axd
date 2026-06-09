@@ -20,6 +20,7 @@ html {
 
 body {
     margin: 0;
+    overflow-x: hidden;
     color: var(--ink);
     font-family: Arial, Helvetica, sans-serif;
     line-height: 1.55;
@@ -39,9 +40,11 @@ code {
     background: rgba(8, 125, 146, 0.1);
     color: var(--sea-dark);
     font-size: 0.94em;
+    overflow-wrap: anywhere;
 }
 
 pre {
+    max-width: 100%;
     overflow-x: auto;
     padding: 18px;
     border: 1px solid var(--line);
@@ -55,9 +58,12 @@ pre code {
     padding: 0;
     background: transparent;
     color: inherit;
+    overflow-wrap: normal;
+    word-break: normal;
 }
 
 .site-hero {
+    min-width: 0;
     min-height: 88vh;
     padding: 24px min(5vw, 72px) 70px;
     background:
@@ -135,6 +141,7 @@ pre code {
     max-width: 1180px;
     min-height: 68vh;
     margin: 48px auto 0;
+    min-width: 0;
 }
 
 .eyebrow {
@@ -209,6 +216,7 @@ h3 {
 .visual-card,
 .image-strip figure {
     margin: 0;
+    min-width: 0;
 }
 
 .visual-card {
@@ -256,6 +264,7 @@ figcaption {
     max-width: 1180px;
     margin: 0 auto;
     padding: 48px min(5vw, 28px);
+    min-width: 0;
 }
 
 .intro-section {
@@ -297,6 +306,7 @@ figcaption {
 .api-grid article,
 .architecture-flow article {
     padding: 22px;
+    min-width: 0;
 }
 
 .feature-card p,
@@ -351,6 +361,7 @@ figcaption {
 
 .checklist-grid > div {
     padding: 22px;
+    min-width: 0;
 }
 
 .checklist {
@@ -376,6 +387,7 @@ figcaption {
     border-radius: 8px;
     background: rgba(255, 255, 255, 0.72);
     box-shadow: 0 14px 40px rgba(7, 61, 82, 0.08);
+    min-width: 0;
 }
 
 .code-example p {
@@ -426,5 +438,20 @@ figcaption {
 
     .site-hero {
         min-height: auto;
+        padding-inline: 18px;
+    }
+
+    .section {
+        padding-inline: 18px;
+    }
+
+    .button {
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+    }
+
+    pre {
+        padding: 14px;
     }
 }
