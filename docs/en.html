@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Environmental Station Measurements Display Application</title>
+    <meta name="description" content="Documentation for an application that displays and documents values retrieved from a Technology Club of Thrace Environmental Station.">
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="site-hero" id="top">
+    <nav class="topbar" aria-label="Documentation navigation">
+        <a class="brand" href="#top">Application Documentation</a>
+        <div class="nav-links">
+            <a href="#description">Description</a>
+            <a href="#features">Features</a>
+            <a href="#architecture">Setup</a>
+            <a href="#api">API</a>
+            <a href="#license">License</a>
+        </div>
+        <div class="language-switch" aria-label="Language">
+            <a href="index.html" lang="el">Ελληνικά</a>
+            <a class="active" href="en.html" lang="en" aria-current="page">English</a>
+        </div>
+    </nav>
+
+    <div class="hero-grid">
+        <div class="hero-copy">
+            <p class="eyebrow">Alexandroupoli | City Center</p>
+            <h1>Environmental Station Measurements Display Application</h1>
+            <p class="lead">
+                An application for displaying and documenting values retrieved from a Technology
+                Club of Thrace Environmental Station.
+            </p>
+            <div class="hero-actions">
+                <a class="button primary" href="https://labschool.gr/iot-steth-axd/">View Application</a>
+                <a class="button primary" href="#description">Read Documentation</a>
+                <a class="button secondary" href="#api">Microcontroller API</a>
+            </div>
+        </div>
+
+        <figure class="visual-card">
+            <img
+                class="doc-image"
+                src="assets/images/iot-steth-axd.png"
+                alt="Screenshot of the measurements display application"
+            >
+            <figcaption>The main values display screen of the application.</figcaption>
+        </figure>
+    </div>
+</header>
+
+<main>
+    <section class="section intro-section" id="description">
+        <div class="section-heading">
+            <p class="eyebrow">1. Application Description</p>
+            <h2>How is this application used?</h2>
+        </div>
+        <div class="text-columns">
+            <p>
+                It is a display, visualization and documentation system for values retrieved from a
+                specific station operated by the Technology Club of Thrace.
+            </p>
+            <p>
+                Its goal is to present the station's current measurements in a simple,
+                understandable and reliable way on public televisions, schools, waiting rooms,
+                offices, clinics and educational activities.
+            </p>
+        </div>
+        <div class="callout">
+            <p>
+                The measurement source must always remain clear: the values come from a Technology
+                Club of Thrace Environmental Station, not from the display application itself.
+            </p>
+        </div>
+    </section>
+
+    <section class="section" id="features">
+        <div class="section-heading">
+            <p class="eyebrow">2. Core Features</p>
+            <h2>What does this specific display provide?</h2>
+        </div>
+        <div class="feature-grid">
+            <article class="feature-card">
+                <h3>Responsive Dashboard</h3>
+                <p>Measurement display for desktop computers, tablets and mobile devices.</p>
+            </article>
+            <article class="feature-card">
+                <h3>TV Mode</h3>
+                <p>A large-screen version for televisions, using one measurement card at a time.</p>
+            </article>
+            <article class="feature-card">
+                <h3>Bilingual Interface</h3>
+                <p>Greek by default and English through separate translation files.</p>
+            </article>
+            <article class="feature-card">
+                <h3>Date and Time</h3>
+                <p>A card displays the current time and date using the Europe/Athens timezone.</p>
+            </article>
+            <article class="feature-card">
+                <h3>Measurement Descriptions</h3>
+                <p>Each value includes a short explanation of its unit and environmental context.</p>
+            </article>
+            <article class="feature-card">
+                <h3>Visible Data Source</h3>
+                <p>The display keeps the logo, source label and station link visible.</p>
+            </article>
+        </div>
+    </section>
+
+    <section class="section image-strip single-image" aria-label="TV Mode documentation image">
+        <figure>
+            <img
+                class="doc-image"
+                src="assets/images/iot-steth-axd-tv-mode.png"
+                alt="Screenshot of the TV Mode measurements display"
+            >
+            <figcaption>Measurement display for large screens.</figcaption>
+        </figure>
+    </section>
+
+    <section class="section" id="architecture">
+        <div class="section-heading">
+            <p class="eyebrow">3. Architecture and Installation</p>
+            <h2>How does the application work?</h2>
+        </div>
+        <div class="architecture-flow">
+            <article>
+                <span class="step">1</span>
+                <h3>Value Source</h3>
+                <p>
+                    The application retrieves values from a ThingsBoard endpoint connected to the
+                    specific environmental station.
+                </p>
+            </article>
+            <article>
+                <span class="step">2</span>
+                <h3>Local Configuration</h3>
+                <p>
+                    Real connection details are stored in <code>config.php</code>, which is not
+                    published to GitHub.
+                </p>
+            </article>
+            <article>
+                <span class="step">3</span>
+                <h3>Server Cache</h3>
+                <p>
+                    Public tokens and telemetry responses are temporarily stored in
+                    <code>private/</code> to reduce upstream load.
+                </p>
+            </article>
+        </div>
+
+        <div class="checklist-grid setup-grid">
+            <div>
+                <h3>Local use</h3>
+                <ul class="checklist">
+                    <li>Download or clone the code from GitHub.</li>
+                    <li>Copy <code>config.example.php</code> to <code>config.php</code>.</li>
+                    <li>Fill in the ThingsBoard endpoint details in <code>config.php</code>.</li>
+                    <li>Run the application on a local PHP server or in an environment such as XAMPP.</li>
+                </ul>
+            </div>
+            <div>
+                <h3>Server use</h3>
+                <ul class="checklist">
+                    <li>Upload the code to the web server.</li>
+                    <li>Create the real <code>config.php</code> only on the server.</li>
+                    <li>The <code>private/</code> folder must be writable by PHP.</li>
+                    <li>Cache/token files and real connection details are not published.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="api">
+        <div class="section-heading">
+            <p class="eyebrow">4. API Use for Microcontrollers</p>
+            <h2>How are the values displayed on ESP32?</h2>
+        </div>
+        <div class="text-columns">
+            <p>
+                Besides visual display, the application provides small API endpoints for
+                educational electronics projects, ESP32 boards, microcontrollers or simple clients
+                that need selected values.
+            </p>
+            <p>
+                The API exposes only whitelisted keys and uses the same server-side cache, avoiding
+                unnecessary load on the original measurement source.
+            </p>
+        </div>
+        <div class="api-grid">
+            <article>
+                <h3>All Values</h3>
+                <pre><code>GET /api/v1/latest.php</code></pre>
+            </article>
+            <article>
+                <h3>Compact JSON</h3>
+                <pre><code>GET /api/v1/latest.php?flat=1</code></pre>
+            </article>
+            <article>
+                <h3>Single Value</h3>
+                <pre><code>GET /api/v1/value.php?key=temperature</code></pre>
+            </article>
+            <article>
+                <h3>Plain Text</h3>
+                <pre><code>GET /api/v1/value.php?key=temperature&amp;format=text</code></pre>
+            </article>
+        </div>
+        <p class="note">
+            Allowed public keys: <code>temperature</code>, <code>humidity</code>,
+            <code>pressure</code>, <code>co</code>, <code>co2</code>,
+            <code>pm25</code>, <code>pm10</code>.
+        </p>
+
+        <article class="code-example">
+            <h3>Example ESP32 sketch with an OLED display</h3>
+            <p>
+                The following example reads one value from the lightweight API and displays it on
+                a small OLED screen. It is an educational sample and can be adapted for different
+                displays or libraries.
+            </p>
+            <pre><code>#include &lt;WiFi.h&gt;
+#include &lt;HTTPClient.h&gt;
+#include &lt;Wire.h&gt;
+#include &lt;Adafruit_GFX.h&gt;
+#include &lt;Adafruit_SSD1306.h&gt;
+
+#define SCREEN_WIDTH 128
+#define SCREEN_HEIGHT 64
+
+const char* ssid = "YOUR_WIFI_NAME";
+const char* password = "YOUR_WIFI_PASSWORD";
+const char* valueUrl = "https://labschool.gr/iot-steth-axd/api/v1/value.php?key=temperature&amp;format=text";
+
+Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, -1);
+
+void setup() {
+  Serial.begin(115200);
+  WiFi.begin(ssid, password);
+
+  display.begin(SSD1306_SWITCHCAPVCC, 0x3C);
+  display.clearDisplay();
+  display.setTextColor(SSD1306_WHITE);
+  display.setTextSize(1);
+  display.setCursor(0, 0);
+  display.println("Connecting WiFi...");
+  display.display();
+
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+  }
+}
+
+void loop() {
+  if (WiFi.status() == WL_CONNECTED) {
+    HTTPClient http;
+    http.begin(valueUrl);
+    int status = http.GET();
+
+    if (status == 200) {
+      String temperature = http.getString();
+
+      display.clearDisplay();
+      display.setTextSize(1);
+      display.setCursor(0, 0);
+      display.println("Alexandroupoli");
+      display.println("Temperature");
+      display.setTextSize(2);
+      display.setCursor(0, 28);
+      display.print(temperature);
+      display.print(" C");
+      display.display();
+    }
+
+    http.end();
+  }
+
+  delay(60000);
+}</code></pre>
+        </article>
+    </section>
+
+    <section class="section" id="license">
+        <div class="section-heading">
+            <p class="eyebrow">5. License and Operating Terms</p>
+            <h2>How should the source be credited?</h2>
+        </div>
+        <div class="text-columns">
+            <p>
+                The application is published for educational, informational and community use. Any
+                public display of the values must clearly preserve the original measurement source.
+            </p>
+            <p>
+                The logo, source label and station link must not be removed, and the values must
+                not be misleadingly presented as data from another source.
+            </p>
+        </div>
+    </section>
+</main>
+
+<footer class="site-footer">
+    <p>
+        Code curation and educational adaptation: Dimitrios Kanatas ·
+        <a href="https://labschool.gr">labschool.gr</a> ·
+        <a href="https://labschool.mysch.gr">labschool.mysch.gr</a>
+    </p>
+    <p>
+        Environmental data source:
+        <a href="https://steth.gr/env">Technology Club of Thrace Environmental Station</a>
+    </p>
+</footer>
+</body>
+</html>

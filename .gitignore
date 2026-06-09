@@ -1,0 +1,20 @@
+# Local deployment configuration
+config.php
+
+# Server-side cache and generated private files
+private/*.json
+private/*.log
+private/*.tmp
+
+# Local/editor files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# Optional source images kept locally after WebP optimization
+assets/sea-background.png
+assets/sea-morning.png
+assets/sea-noon.png
+assets/sea-afternoon.png
+assets/sea-night.png

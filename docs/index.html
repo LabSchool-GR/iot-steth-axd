@@ -1,0 +1,317 @@
+<!doctype html>
+<html lang="el">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Εφαρμογή Απεικόνισης Μετρήσεων Περιβαλλοντικού Σταθμού</title>
+    <meta name="description" content="Τεκμηρίωση εφαρμογής προβολής και τεκμηρίωσης τιμών που αντλούνται από Περιβαλλοντικό Σταθμό του Συλλόγου Τεχνολογίας Θράκης.">
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="site-hero" id="top">
+    <nav class="topbar" aria-label="Πλοήγηση τεκμηρίωσης">
+        <a class="brand" href="#top">Τεκμηρίωση Εφαρμογής</a>
+        <div class="nav-links">
+            <a href="#description">Περιγραφή</a>
+            <a href="#features">Λειτουργίες</a>
+            <a href="#architecture">Εγκατάσταση</a>
+            <a href="#api">API</a>
+            <a href="#license">Άδεια</a>
+        </div>
+        <div class="language-switch" aria-label="Γλώσσα">
+            <a class="active" href="index.html" lang="el" aria-current="page">Ελληνικά</a>
+            <a href="en.html" lang="en">English</a>
+        </div>
+    </nav>
+
+    <div class="hero-grid">
+        <div class="hero-copy">
+            <p class="eyebrow">Αλεξανδρούπολη | Κέντρο</p>
+            <h1>Εφαρμογή Απεικόνισης Μετρήσεων Περιβαλλοντικού Σταθμού</h1>
+            <p class="lead">
+                Εφαρμογή προβολής και τεκμηρίωσης τιμών που αντλούνται από Περιβαλλοντικό Σταθμό
+                του Συλλόγου Τεχνολογίας Θράκης.
+            </p>
+            <div class="hero-actions">
+                <a class="button primary" href="https://labschool.gr/iot-steth-axd/">Προβολή εφαρμογής</a>
+                <a class="button primary" href="#description">Δείτε την τεκμηρίωση</a>
+                <a class="button secondary" href="#api">API για μικροελεγκτές</a>
+            </div>
+        </div>
+
+        <figure class="visual-card">
+            <img
+                class="doc-image"
+                src="assets/images/iot-steth-axd.png"
+                alt="Στιγμιότυπο της εφαρμογής απεικόνισης μετρήσεων"
+            >
+            <figcaption>Η βασική οθόνη απεικόνισης τιμών της εφαρμογής.</figcaption>
+        </figure>
+    </div>
+</header>
+
+<main>
+    <section class="section intro-section" id="description">
+        <div class="section-heading">
+            <p class="eyebrow">1. Περιγραφή Εφαρμογής</p>
+            <h2>Ποια είναι η χρήση της εφαρμογής;</h2>
+        </div>
+        <div class="text-columns">
+            <p>
+                Είναι ένα σύστημα απεικόνισης, προβολής και τεκμηρίωσης των τιμών που αντλούνται
+                από συγκεκριμένο σταθμό του Συλλόγου Τεχνολογίας Θράκης.
+            </p>
+            <p>
+                Στόχος της είναι να παρουσιάζει τις τρέχουσες μετρήσεις του σταθμού με απλό,
+                κατανοητό και αξιόπιστο τρόπο σε δημόσιες τηλεοράσεις, σχολεία, χώρους αναμονής,
+                γραφεία, ιατρεία και εκπαιδευτικές δράσεις.
+            </p>
+        </div>
+        <div class="callout">
+            <p>
+                Η πηγή των μετρήσεων πρέπει να παραμένει πάντοτε σαφής: οι τιμές προέρχονται από
+                Περιβαλλοντικό Σταθμό του Συλλόγου Τεχνολογίας Θράκης και όχι από την ίδια την
+                εφαρμογή απεικόνισης.
+            </p>
+        </div>
+    </section>
+
+    <section class="section" id="features">
+        <div class="section-heading">
+            <p class="eyebrow">2. Βασικές Λειτουργίες</p>
+            <h2>Τι προσφέρει η συγκεκριμένη απεικόνιση;</h2>
+        </div>
+        <div class="feature-grid">
+            <article class="feature-card">
+                <h3>Responsive Dashboard</h3>
+                <p>Προβολή των μετρήσεων σε υπολογιστές, tablets και κινητές συσκευές.</p>
+            </article>
+            <article class="feature-card">
+                <h3>TV Mode</h3>
+                <p>Ειδική έκδοση για τηλεοράσεις και μεγάλες οθόνες με κάρτες μετρήσεων.</p>
+            </article>
+            <article class="feature-card">
+                <h3>Δίγλωσση λειτουργία</h3>
+                <p>Ελληνικά ως προεπιλογή και αγγλικά μέσω ξεχωριστών αρχείων μετάφρασης.</p>
+            </article>
+            <article class="feature-card">
+                <h3>Ώρα και Ημερομηνία</h3>
+                <p>Προβολή κάρτας με τρέχουσα ώρα και ημερομηνία με timezone Europe/Athens.</p>
+            </article>
+            <article class="feature-card">
+                <h3>Περιγραφές μετρήσεων</h3>
+                <p>Κάθε τιμή συνοδεύεται από σύντομη επεξήγηση μονάδας και ενδεικτικό πλαίσιο.</p>
+            </article>
+            <article class="feature-card">
+                <h3>Ορατή πηγή δεδομένων</h3>
+                <p>Η απεικόνιση κρατά εμφανή το λογότυπο, την πηγή και τον σύνδεσμο του σταθμού.</p>
+            </article>
+        </div>
+    </section>
+
+    <section class="section image-strip single-image" aria-label="Εικόνα τεκμηρίωσης TV Mode">
+        <figure>
+            <img
+                class="doc-image"
+                src="assets/images/iot-steth-axd-tv-mode.png"
+                alt="Στιγμιότυπο του TV Mode της εφαρμογής απεικόνισης μετρήσεων"
+            >
+            <figcaption>Απεικόνιση τιμών σε μεγάλη οθόνη.</figcaption>
+        </figure>
+    </section>
+
+    <section class="section" id="architecture">
+        <div class="section-heading">
+            <p class="eyebrow">3. Αρχιτεκτονική και Εγκατάσταση</p>
+            <h2>Πώς λειτουργεί η εφαρμογή;</h2>
+        </div>
+        <div class="architecture-flow">
+            <article>
+                <span class="step">1</span>
+                <h3>Πηγή τιμών</h3>
+                <p>
+                    Η εφαρμογή αντλεί τις τιμές από ThingsBoard endpoint που αντιστοιχεί στον
+                    συγκεκριμένο περιβαλλοντικό σταθμό.
+                </p>
+            </article>
+            <article>
+                <span class="step">2</span>
+                <h3>Τοπικό configuration</h3>
+                <p>
+                    Τα πραγματικά στοιχεία σύνδεσης αποθηκεύονται στο <code>config.php</code>, το
+                    οποίο δεν δημοσιεύεται στο GitHub.
+                </p>
+            </article>
+            <article>
+                <span class="step">3</span>
+                <h3>Cache στον server</h3>
+                <p>
+                    Τα public tokens και οι telemetry απαντήσεις αποθηκεύονται προσωρινά στον
+                    φάκελο <code>private/</code> για μείωση φορτίου.
+                </p>
+            </article>
+        </div>
+
+        <div class="checklist-grid setup-grid">
+            <div>
+                <h3>Χρήση τοπικά</h3>
+                <ul class="checklist">
+                    <li>Κατεβάζουμε ή κάνουμε clone τον κώδικα από το GitHub.</li>
+                    <li>Αντιγράφουμε το <code>config.example.php</code> σε <code>config.php</code>.</li>
+                    <li>Συμπληρώνουμε στο <code>config.php</code> τα στοιχεία του ThingsBoard endpoint.</li>
+                    <li>Τρέχουμε την εφαρμογή σε τοπικό PHP server ή σε περιβάλλον όπως XAMPP.</li>
+                </ul>
+            </div>
+            <div>
+                <h3>Χρήση σε server</h3>
+                <ul class="checklist">
+                    <li>Ανεβάζουμε τον κώδικα στον web server.</li>
+                    <li>Δημιουργούμε το πραγματικό <code>config.php</code> μόνο στον server.</li>
+                    <li>Ο φάκελος <code>private/</code> πρέπει να είναι writable από PHP.</li>
+                    <li>Τα cache/token αρχεία και τα πραγματικά στοιχεία σύνδεσης δεν δημοσιεύονται.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="api">
+        <div class="section-heading">
+            <p class="eyebrow">4. Χρήση API για μικροελεγκτές</p>
+            <h2>Πώς εμφανίζονται οι τιμές σε ESP32;</h2>
+        </div>
+        <div class="text-columns">
+            <p>
+                Εκτός από την οπτική απεικόνιση, η εφαρμογή παρέχει μικρά API endpoints για
+                εκπαιδευτικές κατασκευές, ESP32, μικροελεγκτές ή απλές συσκευές που χρειάζονται
+                συγκεκριμένες τιμές.
+            </p>
+            <p>
+                Το API δίνει μόνο whitelisted keys και χρησιμοποιεί το ίδιο server-side cache,
+                ώστε να μην επιβαρύνεται άσκοπα η αρχική πηγή των μετρήσεων.
+            </p>
+        </div>
+        <div class="api-grid">
+            <article>
+                <h3>Όλες οι τιμές</h3>
+                <pre><code>GET /api/v1/latest.php</code></pre>
+            </article>
+            <article>
+                <h3>Σύντομο JSON</h3>
+                <pre><code>GET /api/v1/latest.php?flat=1</code></pre>
+            </article>
+            <article>
+                <h3>Μία τιμή</h3>
+                <pre><code>GET /api/v1/value.php?key=temperature</code></pre>
+            </article>
+            <article>
+                <h3>Plain text</h3>
+                <pre><code>GET /api/v1/value.php?key=temperature&amp;format=text</code></pre>
+            </article>
+        </div>
+        <p class="note">
+            Επιτρεπόμενα public keys: <code>temperature</code>, <code>humidity</code>,
+            <code>pressure</code>, <code>co</code>, <code>co2</code>,
+            <code>pm25</code>, <code>pm10</code>.
+        </p>
+
+        <article class="code-example">
+            <h3>Ενδεικτικό παράδειγμα ESP32 με OLED οθόνη</h3>
+            <p>
+                Το παρακάτω παράδειγμα διαβάζει μία τιμή από το ελαφρύ API και την εμφανίζει σε
+                μικρή OLED οθόνη. Είναι εκπαιδευτικό δείγμα και μπορεί να προσαρμοστεί για
+                διαφορετικές οθόνες ή βιβλιοθήκες.
+            </p>
+            <pre><code>#include &lt;WiFi.h&gt;
+#include &lt;HTTPClient.h&gt;
+#include &lt;Wire.h&gt;
+#include &lt;Adafruit_GFX.h&gt;
+#include &lt;Adafruit_SSD1306.h&gt;
+
+#define SCREEN_WIDTH 128
+#define SCREEN_HEIGHT 64
+
+const char* ssid = "YOUR_WIFI_NAME";
+const char* password = "YOUR_WIFI_PASSWORD";
+const char* valueUrl = "https://labschool.gr/iot-steth-axd/api/v1/value.php?key=temperature&amp;format=text";
+
+Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, -1);
+
+void setup() {
+  Serial.begin(115200);
+  WiFi.begin(ssid, password);
+
+  display.begin(SSD1306_SWITCHCAPVCC, 0x3C);
+  display.clearDisplay();
+  display.setTextColor(SSD1306_WHITE);
+  display.setTextSize(1);
+  display.setCursor(0, 0);
+  display.println("Connecting WiFi...");
+  display.display();
+
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+  }
+}
+
+void loop() {
+  if (WiFi.status() == WL_CONNECTED) {
+    HTTPClient http;
+    http.begin(valueUrl);
+    int status = http.GET();
+
+    if (status == 200) {
+      String temperature = http.getString();
+
+      display.clearDisplay();
+      display.setTextSize(1);
+      display.setCursor(0, 0);
+      display.println("Alexandroupoli");
+      display.println("Temperature");
+      display.setTextSize(2);
+      display.setCursor(0, 28);
+      display.print(temperature);
+      display.print(" C");
+      display.display();
+    }
+
+    http.end();
+  }
+
+  delay(60000);
+}</code></pre>
+        </article>
+    </section>
+
+    <section class="section" id="license">
+        <div class="section-heading">
+            <p class="eyebrow">5. Άδεια Χρήσης και Λειτουργίας</p>
+            <h2>Πώς αναφέρουμε την πηγή;</h2>
+        </div>
+        <div class="text-columns">
+            <p>
+                Η εφαρμογή δημοσιεύεται για εκπαιδευτική, ενημερωτική και κοινοτική χρήση. Η
+                προβολή των τιμών πρέπει να διατηρεί καθαρή αναφορά στην πραγματική πηγή των
+                μετρήσεων.
+            </p>
+            <p>
+                Δεν επιτρέπεται η αφαίρεση του λογότυπου, της πηγής ή του συνδέσμου του σταθμού,
+                ούτε η παραπλανητική παρουσίαση των τιμών ως δεδομένα άλλης προέλευσης.
+            </p>
+        </div>
+    </section>
+</main>
+
+<footer class="site-footer">
+    <p>
+        Επιμέλεια κώδικα και εκπαιδευτική προσαρμογή: Dimitrios Kanatas ·
+        <a href="https://labschool.gr">labschool.gr</a> ·
+        <a href="https://labschool.mysch.gr">labschool.mysch.gr</a>
+    </p>
+    <p>
+        Πηγή περιβαλλοντικών δεδομένων:
+        <a href="https://steth.gr/env">Περιβαλλοντικός Σταθμός Συλλόγου Τεχνολογίας Θράκης</a>
+    </p>
+</footer>
+</body>
+</html>

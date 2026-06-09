@@ -1,0 +1,11 @@
+# Environmental Monitoring Station Dashboard - API Apache Rules
+# Code curation and educational adaptation: Dimitrios Kanatas
+# Websites: https://labschool.gr, https://labschool.mysch.gr
+#
+# Keep API helper files private and prevent directory listing.
+
+Options -Indexes
+
+<FilesMatch "^_.*\.php$">
+    Require all denied
+</FilesMatch>

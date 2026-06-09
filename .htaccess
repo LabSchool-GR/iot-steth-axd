@@ -1,0 +1,35 @@
+# Environmental Monitoring Station Dashboard - Apache Rules
+# Code curation and educational adaptation: Dimitrios Kanatas
+# Websites: https://labschool.gr, https://labschool.mysch.gr
+#
+# Public asset MIME types and cache policy. Deployment-specific secrets live in
+# config.php/private and are blocked from direct web access.
+
+AddType image/webp .webp
+AddType image/svg+xml .svg
+AddType video/mp4 .mp4
+
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType text/css "access plus 7 days"
+    ExpiresByType application/javascript "access plus 7 days"
+    ExpiresByType image/png "access plus 30 days"
+    ExpiresByType image/jpeg "access plus 30 days"
+    ExpiresByType image/webp "access plus 30 days"
+    ExpiresByType image/svg+xml "access plus 30 days"
+    ExpiresByType video/mp4 "access plus 30 days"
+</IfModule>
+
+<IfModule mod_headers.c>
+    <FilesMatch "\.(css|js|png|jpe?g|webp|svg|mp4)$">
+        Header set Cache-Control "public, max-age=604800"
+    </FilesMatch>
+</IfModule>
+
+<Files "thingsboard_public_token.json">
+    Require all denied
+</Files>
+
+<Files "config.php">
+    Require all denied
+</Files>
