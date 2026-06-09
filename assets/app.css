@@ -358,6 +358,27 @@
             background: rgba(8, 125, 146, 0.16);
         }
 
+        .documentation-footer {
+            margin-top: 8px;
+            text-align: center;
+        }
+
+        .documentation-footer a {
+            display: inline-flex;
+            padding: 5px 8px;
+            border-radius: 999px;
+            color: rgba(4, 94, 114, 0.82);
+            font-size: 12px;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .documentation-footer a:hover,
+        .documentation-footer a:focus-visible {
+            background: rgba(255, 255, 255, 0.46);
+            color: var(--accent-strong);
+        }
+
         .error {
             margin-bottom: 18px;
             padding: 15px;

@@ -889,6 +889,12 @@ $measurementCards = [
             </nav>
         </div>
     </div>
+
+    <div class="documentation-footer">
+        <a href="https://labschool-gr.github.io/iot-steth-axd/">
+            <?= htmlspecialchars($t['documentation_link'], ENT_QUOTES, 'UTF-8') ?>
+        </a>
+    </div>
 </main>
 <script src="assets/app.js?v=<?= htmlspecialchars($assetVersion, ENT_QUOTES, 'UTF-8') ?>" defer></script>
 </body>
